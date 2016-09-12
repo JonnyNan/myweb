@@ -1,0 +1,30 @@
+<!-- book list -->
+<div class="container">
+    <div class="row">
+        <h2>拉勾</h2>
+        <table class='table'>
+            <th>公司</th>
+            <th>人数</th>
+            <th>职位</th>
+            <th>工资</th>
+            <th>福利</th>
+            <th>年限</th>
+            <th>城市</th>
+            <th>学历</th>
+            <th>日期</th>
+            {% for lagou in lagou_list %}
+                <tr class='success'>
+                <td>{{ lagou.companyShortName }}</td>
+                <td>{{ lagou.companySize }}</td>
+                <td>{{ lagou.positionName }}</td>
+                <td>{{ lagou.salary }}</td>
+                <td>{{ lagou.positionAdvantage }}</td>
+                <td>{{ lagou.workYear }}</td>
+                <td>{{ lagou.city }}</td>
+                <td>{{ lagou.education }}</td>
+                <td>{{ lagou.createTime }}</td>
+            {% endfor %}
+            </tr>
+        </table>
+    </div>
+</div>
