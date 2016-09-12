@@ -4,6 +4,8 @@ from openpyxl import Workbook
 import pymysql.cursors
 from django.shortcuts import render_to_response
 from django.shortcuts import render
+from django.shortcuts import HttpResponseRedirect
+
 
 # Create your views here.
 
@@ -18,7 +20,10 @@ def search(request):
     return render(request,'search.html')
 
 def search_lagou(request):
-    return render(request, 'search.html')
+    username = request.POST.get('searchbox', '')
+    main(username)
+    response = HttpResponseRedirect('/table/')
+    return response
 
 connection = pymysql.connect(host='127.0.0.1',
                              port=3306,
@@ -47,8 +52,8 @@ def get_json(url, page, lang_name):
         info_list.append(info)
     return info_list
 
-def main():
-    lang_name = input('keywords:')
+def main(name):
+    lang_name = name
     page = 0
     url = 'http://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false'
     info_result = []
