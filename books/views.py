@@ -55,9 +55,12 @@ def main(name):
         info = get_json(url, page, lang_name)
         info_result = info_result + info
         page += 1
-    wb = Workbook()
-    ws1 = wb.active
-    ws1.title = lang_name
+    # wb = Workbook()
+    # ws1 = wb.active
+    # ws1.title = lang_name
+    cursor = connection.cursor()
+    delete_sql = "TRUNCATE TABLE `books_result`;"
+    cursor.execute(delete_sql)
     try:
         with connection.cursor() as cursor:
             # Create a new record
@@ -78,6 +81,6 @@ def main(name):
     finally:
         connection.close()
 
-    for row in info_result:
-        ws1.append(row)
-    wb.save(lang_name + '.xlsx')
+    # for row in info_result:
+    #     ws1.append(row)
+    # wb.save(lang_name + '.xlsx')
