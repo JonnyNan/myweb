@@ -17,5 +17,5 @@ class Result(models.Model):
         return self.companyShortName
 
 class User(models.Model):
-    userName = models.CharField(max_length=20)
+    userName = models.CharField(max_length=20,primary_key=True)
     passWord = models.CharField(max_length=20)

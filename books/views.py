@@ -81,6 +81,14 @@ def get_json(url, page, lang_name):
 
 
 def keep_data(name):
+    connection = pymysql.connect(host='127.0.0.1',
+                                 port=3306,
+                                 user='root',
+                                 password='123456',
+                                 db='lagou',
+                                 charset='utf8',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    cursor = connection.cursor()
     lang_name = name
     page = 0
     url = 'http://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false'
@@ -95,14 +103,6 @@ def keep_data(name):
     delete_sql = "TRUNCATE TABLE `books_result`;"
     cursor.execute(delete_sql)
     try:
-        connection = pymysql.connect(host='127.0.0.1',
-                                     port=3306,
-                                     user='root',
-                                     password='123456',
-                                     db='lagou',
-                                     charset='utf8',
-                                     cursorclass=pymysql.cursors.DictCursor)
-        cursor = connection.cursor()
         with connection.cursor() as cursor:
             # Create a new record
             for row in info_result:
