@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',books_views.index),
     url(r'^login/$',books_views.login),
+    url(r'^signup/$',books_views.signup),
+    url(r'^realSignup/$',books_views.realSignup),
     url(r'^loginpage/$',books_views.loginpage),
     url(r'^table/$', books_views.table),
     url(r'^search/$', books_views.search),

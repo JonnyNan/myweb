@@ -10,12 +10,39 @@ from django.http import HttpResponseRedirect,HttpResponse
 
 from books.models import *
 
-
 def index(request):
     return render(request, 'index.html')
 
 def loginpage(request):
     return render(request, 'login.html')
+
+def signup(request):
+    return render(request, 'signUp.html')
+
+def realSignup(request):
+
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    passwordAgain = request.POST.get('passwordAgain')
+    if(password!=passwordAgain):
+        return HttpResponse(u'两次输入的密码不一样')
+    else:
+        try:
+            connection = pymysql.connect(host='127.0.0.1',
+                                         port=3306,
+                                         user='root',
+                                         password='123456',
+                                         db='lagou',
+                                         charset='utf8',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            cursor = connection.cursor()
+            create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
+            user = (username,password)
+            cursor.execute(create_sql,user)
+            connection.commit()
+            return render(request, 'login.html')
+        finally:
+            connection.close()
 
 def login(request):
     username = request.POST.get('username')
@@ -36,7 +63,7 @@ def search(request):
 
 def search_lagou(request):
     search_content = request.POST.get('searchbox', '')
-    main(search_content)
+    keep_data(search_content)
     response = HttpResponseRedirect('/table/')
     return response
 
@@ -53,14 +80,7 @@ def get_json(url, page, lang_name):
     return info_list
 
 
-def main(name):
-    connection = pymysql.connect(host='127.0.0.1',
-                                 port=3306,
-                                 user='root',
-                                 password='123456',
-                                 db='lagou',
-                                 charset='utf8',
-                                 cursorclass=pymysql.cursors.DictCursor)
+def keep_data(name):
     lang_name = name
     page = 0
     url = 'http://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false'
@@ -72,10 +92,17 @@ def main(name):
     # wb = Workbook()
     # ws1 = wb.active
     # ws1.title = lang_name
-    cursor = connection.cursor()
     delete_sql = "TRUNCATE TABLE `books_result`;"
     cursor.execute(delete_sql)
     try:
+        connection = pymysql.connect(host='127.0.0.1',
+                                     port=3306,
+                                     user='root',
+                                     password='123456',
+                                     db='lagou',
+                                     charset='utf8',
+                                     cursorclass=pymysql.cursors.DictCursor)
+        cursor = connection.cursor()
         with connection.cursor() as cursor:
             # Create a new record
             for row in info_result:
