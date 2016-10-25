@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from books.views import table,search,search_lagou
+from books import views as books_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^table/$', table),
-    url(r'^search/$', search),
-    url(r'^search_lagou/$', search_lagou),
+    url(r'^$',books_views.index),
+    url(r'^login/$',books_views.login),
+    url(r'^loginpage/$',books_views.loginpage),
+    url(r'^table/$', books_views.table),
+    url(r'^search/$', books_views.search),
+    url(r'^search_lagou/$', books_views.search_lagou),
 ]
 

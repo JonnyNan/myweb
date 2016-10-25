@@ -4,12 +4,26 @@ from openpyxl import Workbook
 import pymysql.cursors
 from django.shortcuts import render_to_response
 from django.shortcuts import render
-from django.shortcuts import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 
 # Create your views here.
 
 from books.models import *
 
+
+def index(request):
+    return render(request, 'index.html')
+
+def loginpage(request):
+    return render(request, 'login.html')
+
+def login(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    if(username=="nanzhang" and password=="123456"):
+        return render(request, 'search.html')
+    else:
+        return HttpResponse(u"登录失败!")
 
 def table(request):
     lagous = Result.objects.all()
@@ -21,8 +35,8 @@ def search(request):
 
 
 def search_lagou(request):
-    username = request.POST.get('searchbox', '')
-    main(username)
+    search_content = request.POST.get('searchbox', '')
+    main(search_content)
     response = HttpResponseRedirect('/table/')
     return response
 
