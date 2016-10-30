@@ -4,27 +4,30 @@ from openpyxl import Workbook
 import pymysql.cursors
 from django.shortcuts import render_to_response
 from django.shortcuts import render
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 
 # Create your views here.
 
 from books.models import *
 
+
 def index(request):
     return render(request, 'index.html')
+
 
 def loginpage(request):
     return render(request, 'login.html')
 
+
 def signup(request):
     return render(request, 'signUp.html')
 
-def realSignup(request):
 
+def realSignup(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     passwordAgain = request.POST.get('passwordAgain')
-    if(password!=passwordAgain):
+    if (password != passwordAgain):
         return HttpResponse(u'两次输入的密码不一样')
     else:
         try:
@@ -37,20 +40,22 @@ def realSignup(request):
                                          cursorclass=pymysql.cursors.DictCursor)
             cursor = connection.cursor()
             create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
-            user = (username,password)
-            cursor.execute(create_sql,user)
+            user = (username, password)
+            cursor.execute(create_sql, user)
             connection.commit()
             return render(request, 'login.html')
         finally:
             connection.close()
 
+
 def login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
-    if(username=="nanzhang" and password=="123456"):
+    if (username == "nanzhang" and password == "123456"):
         return render(request, 'search.html')
     else:
         return HttpResponse(u"登录失败!")
+
 
 def table(request):
     lagous = Result.objects.all()
@@ -122,6 +127,6 @@ def keep_data(name):
     finally:
         connection.close()
 
-    # for row in info_result:
-    #     ws1.append(row)
-    # wb.save(lang_name + '.xlsx')
+        # for row in info_result:
+        #     ws1.append(row)
+        # wb.save(lang_name + '.xlsx')
