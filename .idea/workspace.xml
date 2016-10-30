@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2a390bc-f890-4a81-99ec-d8ebe7217b67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/myweb.iml" afterPath="$PROJECT_DIR$/.idea/myweb.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books/models.py" afterPath="$PROJECT_DIR$/books/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books/views.py" afterPath="$PROJECT_DIR$/books/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myweb/__init__.py" afterPath="$PROJECT_DIR$/myweb/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myweb/urls.py" afterPath="$PROJECT_DIR$/myweb/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/search.html" afterPath="$PROJECT_DIR$/templates/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/signUp.html" afterPath="$PROJECT_DIR$/templates/signUp.html" />
     </list>
     <ignored path="myweb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myweb/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
@@ -58,15 +50,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/books/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="55" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+            <state relative-caret-position="403">
+              <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
-                <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-                <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
+                <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+                <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+                <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+                <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+                <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
               </folding>
             </state>
           </provider>
@@ -165,11 +160,11 @@
         <option value="$PROJECT_DIR$/templates/signUp.html" />
         <option value="$PROJECT_DIR$/templates/search.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/books/views.py" />
         <option value="$PROJECT_DIR$/books/models.py" />
         <option value="$PROJECT_DIR$/myweb/urls.py" />
         <option value="$PROJECT_DIR$/myweb/settings.py" />
         <option value="$PROJECT_DIR$/myweb/__init__.py" />
+        <option value="$PROJECT_DIR$/books/views.py" />
       </list>
     </option>
   </component>
@@ -599,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477387937956</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update some script ,add signUp.html">
+      <created>1477838091367</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1477838091367</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -610,10 +612,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.326257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -681,8 +683,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
-            <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-            <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
+            <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+            <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
           </folding>
         </state>
       </provider>
@@ -750,8 +755,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
-            <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-            <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
+            <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+            <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
           </folding>
         </state>
       </provider>
@@ -819,8 +827,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
-            <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-            <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
+            <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+            <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
           </folding>
         </state>
       </provider>
@@ -888,8 +899,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
-            <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-            <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
+            <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+            <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
           </folding>
         </state>
       </provider>
@@ -1037,18 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="55" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-            <marker date="1477838038203" expanded="true" signature="1240:1305" ph="INSERT INTO `books_user`... " />
-            <marker date="1477838038203" expanded="true" signature="3611:3855" ph="INSERT INTO `books_result`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/books/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1080,6 +1082,21 @@
         <state relative-caret-position="57">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/books/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+            <marker date="1477839380553" expanded="true" signature="1241:1306" ph="INSERT INTO `books_user`... " />
+            <marker date="1477839380553" expanded="true" signature="1339:1405" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1407" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="1339:1408" ph="SELECT userN... books_user" />
+            <marker date="1477839380553" expanded="true" signature="3861:4105" ph="INSERT INTO `books_result`... " />
+          </folding>
         </state>
       </provider>
     </entry>

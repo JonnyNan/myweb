@@ -28,7 +28,7 @@ def realSignup(request):
     password = request.POST.get('password')
     passwordAgain = request.POST.get('passwordAgain')
     if (password != passwordAgain):
-        return HttpResponse(u'两次输入的密码不一样')
+        return HttpResponse(u'两次输入的密码不一致！')
     else:
         try:
             connection = pymysql.connect(host='127.0.0.1',
@@ -40,10 +40,14 @@ def realSignup(request):
                                          cursorclass=pymysql.cursors.DictCursor)
             cursor = connection.cursor()
             create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
-            user = (username, password)
-            cursor.execute(create_sql, user)
-            connection.commit()
-            return render(request, 'login.html')
+            search_user_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s'" %(username)
+            if (cursor.execute(search_user_sql)==0):
+                user = (username, password)
+                cursor.execute(create_sql, user)
+                connection.commit()
+                return render(request, 'login.html')
+            else:
+                return HttpResponse(u'用户名已存在！')
         finally:
             connection.close()
 
