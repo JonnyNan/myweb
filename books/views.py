@@ -27,29 +27,35 @@ def realSignup(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     passwordAgain = request.POST.get('passwordAgain')
-    if (password != passwordAgain):
-        return HttpResponse(u'两次输入的密码不一致！')
+    if (username == ""):
+        return HttpResponse(u"账号不能为空!")
     else:
-        try:
-            connection = pymysql.connect(host='127.0.0.1',
-                                         port=3306,
-                                         user='root',
-                                         password='123456',
-                                         db='lagou',
-                                         charset='utf8',
-                                         cursorclass=pymysql.cursors.DictCursor)
-            cursor = connection.cursor()
-            create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
-            search_user_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s'" % (username)
-            if (cursor.execute(search_user_sql) == 0):
-                user = (username, password)
-                cursor.execute(create_sql, user)
-                connection.commit()
-                return render(request, 'login.html')
+        if (password == ""):
+            return HttpResponse(u"密码不能为空!")
+        else:
+            if (password != passwordAgain):
+                return HttpResponse(u'两次输入的密码不一致！')
             else:
-                return HttpResponse(u'用户名已存在！')
-        finally:
-            connection.close()
+                try:
+                    connection = pymysql.connect(host='127.0.0.1',
+                                                 port=3306,
+                                                 user='root',
+                                                 password='123456',
+                                                 db='lagou',
+                                                 charset='utf8',
+                                                 cursorclass=pymysql.cursors.DictCursor)
+                    cursor = connection.cursor()
+                    create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
+                    search_user_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s'" % (username)
+                    if (cursor.execute(search_user_sql) == 0):
+                        user = (username, password)
+                        cursor.execute(create_sql, user)
+                        connection.commit()
+                        return render(request, 'login.html')
+                    else:
+                        return HttpResponse(u'用户名已存在！')
+                finally:
+                    connection.close()
 
 
 def login(request):
