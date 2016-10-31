@@ -40,8 +40,8 @@ def realSignup(request):
                                          cursorclass=pymysql.cursors.DictCursor)
             cursor = connection.cursor()
             create_sql = "INSERT INTO `books_user` (`userName`, `passWord`) VALUES (%s, %s)"
-            search_user_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s'" %(username)
-            if (cursor.execute(search_user_sql)==0):
+            search_user_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s'" % (username)
+            if (cursor.execute(search_user_sql) == 0):
                 user = (username, password)
                 cursor.execute(create_sql, user)
                 connection.commit()
@@ -55,10 +55,26 @@ def realSignup(request):
 def login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
-    if (username == "nanzhang" and password == "123456"):
-        return render(request, 'search.html')
+    if (username == ""):
+        return HttpResponse(u"账号不能为空!")
     else:
-        return HttpResponse(u"登录失败!")
+        if (password == ""):
+            return HttpResponse(u"密码不能为空!")
+        else:
+            connection = pymysql.connect(host='127.0.0.1',
+                                         port=3306,
+                                         user='root',
+                                         password='123456',
+                                         db='lagou',
+                                         charset='utf8',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            cursor = connection.cursor()
+            lookup_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s' AND passWord = '%s';" % (
+            username, password)
+            if(cursor.execute(lookup_sql) >= 1):
+                return render(request, 'search.html')
+            else:
+                return HttpResponse(u"账号或者密码不正确!")
 
 
 def table(request):
