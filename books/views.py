@@ -28,13 +28,13 @@ def realSignup(request):
     password = request.POST.get('password')
     passwordAgain = request.POST.get('passwordAgain')
     if (username == ""):
-        return HttpResponse(u"账号不能为空!")
+        return render(request, 'login.html', {'error': '账户名字不能为空！'})
     else:
         if (password == ""):
-            return HttpResponse(u"密码不能为空!")
+            return render(request, 'login.html', {'error': '密码不能为空！'})
         else:
             if (password != passwordAgain):
-                return HttpResponse(u'两次输入的密码不一致！')
+                return render(request, 'login.html', {'error': '两次输入密码不一致。'})
             else:
                 try:
                     connection = pymysql.connect(host='127.0.0.1',
@@ -53,7 +53,7 @@ def realSignup(request):
                         connection.commit()
                         return render(request, 'login.html')
                     else:
-                        return HttpResponse(u'用户名已存在！')
+                        return render(request, 'login.html', {'error': '用户名已存在！'})
                 finally:
                     connection.close()
 
@@ -62,10 +62,10 @@ def login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     if (username == ""):
-        return HttpResponse(u"账号不能为空!")
+        return render(request, 'login.html', {'error': '账号不能为空！'})
     else:
         if (password == ""):
-            return HttpResponse(u"密码不能为空!")
+            return render(request, 'login.html', {'error': '密码不能为空！'})
         else:
             connection = pymysql.connect(host='127.0.0.1',
                                          port=3306,
@@ -80,7 +80,8 @@ def login(request):
             if(cursor.execute(lookup_sql) >= 1):
                 return render(request, 'search.html')
             else:
-                return HttpResponse(u"账号或者密码不正确!")
+                return render(request, 'login.html',{'error':'账号或者密码不正确'})
+                #return HttpResponse(u"账号或者密码不正确!")
 
 
 def table(request):
