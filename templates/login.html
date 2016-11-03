@@ -6,17 +6,17 @@
 </head>
 <body>
 <form method="post" action="/login/">
+    <label>用户名：</label>
     <input type="text" name="username" placeholder="请输入你的用户名">
     <br>
+    <label>密码：</label>
     <input type="password" name="password" placeholder="请输入你的密码">
-     <br>
-    <input type="submit" value="登录">
-</form>
+    <br>
+    <input type="submit" value="登录"></form>
 <form method="get" action="/signup/">
     <input type="submit" value="注册">
 </form>
 {{ error }}
-
-
+{{ success }}
 </body>
 </html>

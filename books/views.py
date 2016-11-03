@@ -28,13 +28,13 @@ def realSignup(request):
     password = request.POST.get('password')
     passwordAgain = request.POST.get('passwordAgain')
     if (username == ""):
-        return render(request, 'login.html', {'error': '账户名字不能为空！'})
+        return render(request, 'signUp.html', {'error': '账户名字不能为空！'})
     else:
         if (password == ""):
-            return render(request, 'login.html', {'error': '密码不能为空！'})
+            return render(request, 'signUp.html', {'error': '密码不能为空！'})
         else:
             if (password != passwordAgain):
-                return render(request, 'login.html', {'error': '两次输入密码不一致。'})
+                return render(request, 'signUp.html', {'error': '两次输入密码不一致。'})
             else:
                 try:
                     connection = pymysql.connect(host='127.0.0.1',
@@ -51,9 +51,9 @@ def realSignup(request):
                         user = (username, password)
                         cursor.execute(create_sql, user)
                         connection.commit()
-                        return render(request, 'login.html')
+                        return render(request, 'login.html',{'success':'用户名已创建，现在可以用来登陆！'})
                     else:
-                        return render(request, 'login.html', {'error': '用户名已存在！'})
+                        return render(request, 'signUp.html', {'error': '用户名已存在！'})
                 finally:
                     connection.close()
 
@@ -78,10 +78,16 @@ def login(request):
             lookup_sql = "SELECT userName, passWord FROM lagou.books_user WHERE userName = '%s' AND passWord = '%s';" % (
             username, password)
             if(cursor.execute(lookup_sql) >= 1):
-                return render(request, 'search.html')
+                response =  HttpResponseRedirect('/login_success/')
+                response.set_cookie('user',username,3600)
+                return response;
             else:
-                return render(request, 'login.html',{'error':'账号或者密码不正确'})
+                return render(request, 'login.html',{'error':'账号或者密码不正确！'})
                 #return HttpResponse(u"账号或者密码不正确!")
+
+def login_success(request):
+    username = request.COOKIES.get('user', '')  # 读取浏览器cookie
+    return render(request, "search.html", {"user": username})
 
 
 def table(request):

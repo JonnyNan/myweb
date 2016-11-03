@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^table/$', books_views.table),
     url(r'^search/$', books_views.search),
     url(r'^search_lagou/$', books_views.search_lagou),
+    url(r'^login_success/$', books_views.login_success),
 ]

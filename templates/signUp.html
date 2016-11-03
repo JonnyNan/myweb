@@ -5,12 +5,19 @@
     <title>注册之后就可以登录啦</title>
 </head>
 <body>
+
+<form method="post" action="/loginpage/">
+    <p>欢迎您注册网站会员，如果您已拥有账户，则可以点此<input type="submit" name="signup" value="登陆"></p>
+</form>
 <form method="post" action="/realSignup/">
-    <p>欢迎您注册网站会员，如果您已拥有账户，则可以在此<a href="localhost:8000/loginpage/">登录</a></p>
-    <input type="text" name="username" placeholder="输入用户名"><br>
-    <input type="password" name="password" placeholder="输入密码"><br>
-    <input type="password" name="passwordAgain" placeholder="再输一次密码"><br>
+    <label>用户名：</label>
+    <input type="text" name="username" placeholder="用户名"><br>
+    <label>密码：</label>
+    <input type="password" name="password" placeholder="密码"><br>
+    <label>重复密码：</label>
+    <input type="password" name="passwordAgain" placeholder="重复密码"><br>
     <input type="submit" name="signup" value="注册">
 </form>
+{{ error }}
 </body>
 </html>
