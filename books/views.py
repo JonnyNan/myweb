@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import requests
+from django.contrib.auth.decorators import login_required
 from openpyxl import Workbook
 import pymysql.cursors
 from django.shortcuts import render_to_response
@@ -79,26 +80,28 @@ def login(request):
             username, password)
             if(cursor.execute(lookup_sql) >= 1):
                 response =  HttpResponseRedirect('/login_success/')
-                response.set_cookie('user',username,3600)
+                # response.set_cookie('user',username,3600)
+                request.session['user'] = username  # 将session 信息记录到浏览器
                 return response;
             else:
                 return render(request, 'login.html',{'error':'账号或者密码不正确！'})
                 #return HttpResponse(u"账号或者密码不正确!")
 
 def login_success(request):
-    username = request.COOKIES.get('user', '')  # 读取浏览器cookie
+    #username = request.COOKIES.get('user', '')  # 读取浏览器cookie
+    username = request.session.get('user','') #读取服务器session
     return render(request, "search.html", {"user": username})
 
-
+@login_required
 def table(request):
     lagous = Result.objects.all()
     return render_to_response('table.html', {'lagou_list': lagous})
 
-
+@login_required
 def search(request):
     return render(request, 'search.html')
 
-
+@login_required
 def search_lagou(request):
     search_content = request.POST.get('searchbox', '')
     keep_data(search_content)
