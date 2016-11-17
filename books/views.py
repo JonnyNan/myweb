@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 import requests
-from django.contrib.auth.decorators import login_required
 from openpyxl import Workbook
 import pymysql.cursors
 from django.shortcuts import render_to_response
@@ -90,24 +89,24 @@ def login(request):
 def login_success(request):
     #username = request.COOKIES.get('user', '')  # 读取浏览器cookie
     username = request.session.get('user','') #读取服务器session
-    return render(request, "search.html", {"user": username})
+    if(username==''):
+        return render(request, 'index.html')
+    else:
+        return render(request, "search.html", {"user": username})
 
-@login_required
+
 def table(request):
     lagous = Result.objects.all()
     return render_to_response('table.html', {'lagou_list': lagous})
 
-@login_required
 def search(request):
     return render(request, 'search.html')
 
-@login_required
 def search_lagou(request):
     search_content = request.POST.get('searchbox', '')
     keep_data(search_content)
     response = HttpResponseRedirect('/table/')
     return response
-
 
 def get_json(url, page, lang_name):
     data = {'first': 'true', 'pn': page, 'kd': lang_name}

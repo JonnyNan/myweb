@@ -20,8 +20,6 @@ from books import views as books_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', books_views.index),
-    url(r'^index/$', books_views.index),
-    url(r'^accounts/login/$', books_views.index),
     url(r'^login/$', books_views.login),
     url(r'^signup/$', books_views.signup),
     url(r'^realSignup/$', books_views.realSignup),

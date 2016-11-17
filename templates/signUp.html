@@ -11,11 +11,11 @@
 </form>
 <form method="post" action="/realSignup/">
     <label>用户名：</label>
-    <input type="text" name="username" placeholder="用户名"><br>
+    <input type="text" name="username" placeholder="用户名" maxlength="20" minlength="2"><br>
     <label>密码：</label>
-    <input type="password" name="password" placeholder="密码"><br>
+    <input type="password" name="password" placeholder="密码" maxlength="20" minlength="2"><br>
     <label>重复密码：</label>
-    <input type="password" name="passwordAgain" placeholder="重复密码"><br>
+    <input type="password" name="passwordAgain" placeholder="重复密码"  maxlength="20" minlength="2"><br>
     <input type="submit" name="signup" value="注册">
 </form>
 {{ error }}
